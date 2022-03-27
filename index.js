@@ -14,10 +14,9 @@ let people = [
       firstName: "Allen",
       lastName: "Doelue",
       age: 21,
-      gender: 'Male',
       profilePic: '',
       workoutGoal: 'Muscle Mass',
-      availDaysOfWk: [1, 0, 1, 0, 1, 0, 0],
+      hoursPerDayOfWeek: [1, 0, 1, 0, 1, 0, 0],
       squat: 225,
       deadlift: 225,
       bench: 145,
@@ -28,10 +27,9 @@ let people = [
         firstName: "Johnny",
         lastName: "Yang",
         age: 20,
-        gender: 'Male',
         profilePic: '',
         workoutGoal: 'Muscle Mass',
-        availDaysOfWk: [1, 1, 1, 1, 1, 1, 1],
+        hoursPerDayOfWeek: [1, 1, 1, 1, 1, 1, 1],
         squat: 225,
         deadlift: 225,
         bench: 120,
@@ -42,10 +40,9 @@ let people = [
         firstName: "Kurt",
         lastName: "Goerg",
         age: 22,
-        gender: 'Male',
         profilePic: '',
         workoutGoal: 'Health',
-        availDaysOfWk: [1, 1, 1, 1, 0, 0, 0],
+        hoursPerDayOfWeek: [1, 1, 1, 1, 0, 0, 0],
         squat: 150,
         deadlift: 145,
         bench: 110,
@@ -61,6 +58,37 @@ app.get('/', (request, response) => {
 app.get('/api/people', (request, response) => {
     response.json(people)
   })
+
+app.post('/api/people', (request, response, next) => {
+
+    const person = request.body
+    people = people.concat(person)
+
+    response.json(person)
+
+    
+
+    // const person = new Person(
+
+
+    //     {
+    //         id: body.id,
+    //         firstName: body.firstName,
+    //         lastName: body.lastName,
+    //         age: body.age,
+    //         profilePic: body.profilePic,
+    //         workoutGoal: body.workoutGoal,
+    //         hoursPerDayOfWeek: body.hoursPerDayOfWeek,
+    //         squat: body.valSquat,
+    //         deadlift: body.valDeadlift,
+    //         bench: body.valBench,
+    //         expYears: body.expYears
+    //     }
+    // )
+
+
+
+})
   
 
 const PORT = 3001
